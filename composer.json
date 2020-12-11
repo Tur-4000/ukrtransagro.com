@@ -1,0 +1,12 @@
+{
+    "require": {
+        "tur-4000/simple_query-builder": "dev-master"
+    },
+    "autoload": {
+        "files": [
+            "includes/helpers.php",
+            "includes/user.php",
+            "includes/DatabaseConnection.php"
+        ]
+    }
+}

@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow:400,700|PT+Serif:400,400italic&subset=latin,cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&subset=latin,cyrillic-ext");
+@font-face {font-family: Days; src: local("Days"), url(../fonts/Days.otf);}
+
+::-webkit-scrollbar {width: 9px; background: rgba(255,255,255,0.4);}
+::-webkit-scrollbar-track {background: none;}
+::-webkit-scrollbar-thumb {background: #33a754;}
+::-moz-scrollbar {width: 9px; background: rgba(255,255,255,0.4);}
+::-moz-scrollbar-track {background: none;}
+::-moz-scrollbar-thumb {background: #33a754;}
+
+ul::-webkit-scrollbar {width: 5px; background: none;}
+ul::-webkit-scrollbar-track {background: none;}
+ul::-webkit-scrollbar-thumb {background: #ddc;}
+ul::-moz-scrollbar {width: 5px; background: none;}
+ul::-moz-scrollbar-track {background: none;}
+ul::-moz-scrollbar-thumb {background: #ddc;}
+
+::-webkit-input-placeholder {color: #fffffa; font-family: 'Roboto Slab', serif;}
+::-moz-placeholder          {color: #fffffa; font-family: 'Roboto Slab', serif;}
+:-moz-placeholder           {color: #fffffa; font-family: 'Roboto Slab', serif;}
+:-ms-input-placeholder      {color: #fffffa; font-family: 'Roboto Slab', serif;}
+
+*, *::after, *::before {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+a:focus, input:focus, textarea:focus, select:focus {outline: none;}
+
+html, body {min-width: 900px; width: 100%;}
+body {
+  font-size: 14px;
+  font-family: 'Roboto Slab', serif;
+  color: #776;
+  background: #fffffa;
+  text-align: left;
+  overflow-x: hidden;
+}
+.content {position: relative; display: block; padding: 60px 50px 50px 50px;}
+.content *:before, .content *:after {content: ""; position: absolute; display: block;}
+
+h1,h2,h3,h4,h5 {font-family: 'Roboto Slab', serif; text-align: center; text-transform: uppercase; position: relative;}
+h1 {font-size: 40px; margin-bottom: 15px;}
+h2 {font-size: 35px; margin: 15px 0 50px;}
+h4 {font-size: 20px; margin: 20px 0; width: 500px; padding: 20px; background: #fffffa; margin: 0 auto; color: #bba;}
+h4:before {width: 6px; height: 6px; top: -2.5px; left: 0; right: 0; margin: auto; background: #ddc; border-radius: 3px;}
+h4:after {width: 6px; height: 6px; bottom: -2.5px; left: 0; right: 0; margin: auto; background: #ddc; border-radius: 3px;}
+
+a {cursor: pointer; text-decoration: none; transition: 0.3s; color: #33a754;}
+a.back {position: absolute; width: 80px; height: 80px; background: url(../images/back.png) no-repeat center; top: 0; right: 0;}
+a.back:before {content: attr(alt); width: 300px; height: 30px; text-align: right; font-size: 20px; font-weight: bold; text-transform: uppercase; right: 100px; top: 30px; opacity: 0; transition: 0.3s;}
+a.back:hover:before {right: 80px; opacity: 1;}
+intro {display: block; font-size: 20px; line-height: 26px; width: 100%; max-width: 1400px; margin: 0 auto 50px auto;}
+block {display: block; padding: 15px; margin-bottom: 20px; background: #bba; color: #fffffa; font-size: 30px; text-align: center;}
+p {margin-bottom: 10px;}
+strong {font-weight: bold;}
+p.h {position: relative; display: block; text-align: center; font-size: 40px; text-transform: uppercase; margin-bottom: 40px; color: #ddc;}
+p.h:before {width: 300px; height: 2px; background: #ddc; left: 0; right: 0; top: -10px; margin: auto;}
+p.h:after {width: 300px; height: 2px; background: #ddc; left: 0; right: 0; bottom: -10px; margin: auto;}
+
+header, centre, footer, podmenu {position: relative; display: block; width: 100%;}
+center {display: block; overflow: hidden;}
+.clear {clear: both;}
+.block {width: 100%; max-width: 1400px; margin: 0 auto;}
+
+/* кнопка открытия меню */
+#menu-button {position: absolute; display: block; left: 50px; top: 10px; width: 45px; height: 45px; background: transparent; z-index: 99; transition: 0.3s; cursor: pointer;}
+#menu-button:after {content: attr(alt); padding: 8px 10px; right: -65px; top: 7px; color: #bba; font-family: 'Roboto Slab', serif;}
+#menu-button div {position: absolute; width: 30px; height: 3px; left: 0; right: 0; margin: 0 auto; background: #33a754; transition: 0.3s;}
+#menu-button .line-1 {top: 10px;}
+#menu-button .line-2 {top: 20px;}
+#menu-button .line-3 {top: 30px;}
+#menu-button:hover div {background: #33a754;}
+#menu-button:hover {left: 65px;}
+
+/* конец - кнопка открытия меню */
+
+div {position: relative; display: block; margin: 0 auto; z-index: 1;}
+header div.content {height: 100%; padding: 75px;}
+centre {height: auto; background: #fffffa; padding: 100px 0;}
+centre > div {display: block; width: 100%; max-width: 1400px;}
+
+
+menu {position: fixed; display: none; top: 0; left: 0; padding: 20px; width: 100%; height: 100%; background: radial-gradient(#fffffa 30%, #ddc 80%); z-index: 100;}
+menu.active {display: block;}
+menu:after {width: 100%; height: 100%; top: 0; left: 0; background: url(../images/colos.png) no-repeat top right; background-size: auto; opacity: 0.3;}
+menu:before {width: 150px; height: 150px; transform: rotate(45deg); background: #bba; left: 0; right: 0; top: -75px; border-radius: 0 0 10px 0; margin: auto;}
+menu close {position: absolute; display: block; width: 50px; height: 50px; left: 30px; top: 30px; z-index: 101; cursor: pointer;}
+menu close:before {width: 30px; height: 3px; background: #776; left: 10px; top: 23px; transform: rotate(45deg); transition: 0.3s;}
+menu close:after {width: 30px; height: 3px; background: #776; left: 10px; top: 23px; transform: rotate(135deg); transition: 0.3s;}
+menu close:hover:before, menu close:hover:after {background: #33a754;}
+menu div {width: 100%; height: 100%; border: 3px solid #bba;}
+menu ul {position: absolute; display: block; width: 1070px; left: 0; right: 0; top: 150px; margin: 0 auto; z-index: 101;}
+menu ul li {position: relative; display: block; float: left;}
+menu ul > li:before {width: 60px; height: 2px; background: #33a754; bottom: 0; left: 30px;}
+menu ul li a {position: relative; display: block; padding: 10px 30px; color: #776; font-size: 18px; font-family: 'Roboto Slab', serif; text-transform: uppercase; z-index: 1;}
+menu ul li a:hover {color: #33a754;}
+menu ul li:last-child a:after {display: none;}
+
+lang {position: absolute; display: block; top: 13px; right: 50px; background: rgba(255,255,240,0.1); z-index: 1;}
+lang a {display: block; padding: 10px 12px; font-size: 14px; color: #776; border-right: 1px solid #33a754; float: left;}
+lang a:hover {color: #33a754;}
+lang a:last-child {border-right: none;}
+lang a.active {background: #33a754; color: #fffffa;}
+
+cabinet {position: absolute; width: 100%; top: 20px; left: 45%; right: 45%; background: rgba(255,255,240,0.1); z-index: 1;}
+cabinet a {font-size: 18px; color: #776; text-decoration: none; text-transform: uppercase;}
+
+menu info {position: absolute; display: block; width: 400px; left: 0; right: 0; bottom: 100px; margin: 0 auto; text-align: center; color: #776; z-index: 101;}
+menu info logo {position: relative; display: block; width: 150px; height: 73px; background: url(../images/logo.png) no-repeat center; background-size: cover; margin: 0 auto 15px;}
+menu info p {margin-bottom: 5px;}
+menu info p.h1 {font-size: 24px; font-weight: bold; color: #33a754;}
+menu info p.tel {font-size: 18px;}
+menu info a {color: #33a754;}
+menu info .mail:before {width: 0; height: 2px; background: #33a754; left: 0; right: 0; bottom: -5px; margin: 0 auto; transition: 0.3s;}
+menu info .mail:hover:before {width: 80px;}
+
+menu ul li ul {position: absolute; left: 0; top: 50px;}
+menu ul li ul li {clear: both; max-width: 150px;}
+menu ul li ul li a {font-size: 12px;}
+menu ul li ul li:before {width: 30px; height: 1px; background: #776; bottom: 0; left: 30px;}
+menu a.fb {position: absolute; display: block; width: 30px; height: 30px; background: #bba url(../images/fb.png) no-repeat center; left: 0; right: 0; margin: 10px auto 0; background-size: cover; cursor: pointer; z-index: 100;}
+
+header {height: 650px; width: 100%; margin: auto;}
+header blur:before {width: 70px; height: 70px; background: #fffffa; left: 0; right: 0; top: -40px; margin: auto; border-radius: 0 0 10px 0;
+    -moz-transform: rotate(45deg); /* Для Firefox */
+    -ms-transform: rotate(45deg); /* Для IE */
+    -webkit-transform: rotate(45deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(45deg); /* Для Opera */
+    transform: rotate(45deg);
+}
+header screen {position: absolute; display: block; overflow: hidden; width: 100%; height: 100%; transition: .5s;}
+header screen .play_button {position: absolute; left: 45%; right: 50%; bottom: 50%; top: 50%; margin: auto; display: block; width: 200px; height: 200px; background-image: url(/images/play-button.png); background-repeat: no-repeat; background-position: center; background-size: cover; transition: .5s;}
+header screen .play_button.active {position: absolute; left: 45%; right: 50%; bottom: 50%; top: 50%; margin: auto; display: block; width: 200px; height: 200px; background-image: url(/images/pause.png); background-repeat: no-repeat; background-position: center; background-size: cover;}
+header screen blur {position: absolute; display: block; width: 100%; height: 100%; background: rgba(0,90,0,0.3); box-shadow: 0 0 50px rgba(0,0,0,0.2) inset;}
+header screen video {position: absolute; width: 100%; z-index: -5; background-size: cover;
+     -webkit-filter: brightness(100%) contrast(100%) grayscale(0%);
+     -moz-filter: brightness(100%) contrast(100%) grayscale(0%);
+     -o-filter: brightness(100%) contrast(100%) grayscale(0%);
+     -ms-filter: brightness(100%) contrast(100%) grayscale(0%);
+     filter: brightness(100%) contrast(100%) grayscale(0%);
+}
+header .logo {position: absolute; width: 150px; height: auto; left: 40px; bottom: 160px; -webkit-filter: grayscale(0%); z-index: 1;}
+header .eba {position: absolute; top: 50px; right: 0; width: 80px; height: 50px; background: url(../images/eba_logo.png); z-index: 1;}
+
+header > div {position: absolute; display: block; width: calc(100% - 40px); padding: 20px; left: 20px; bottom: 20px; color: #fffffa; background: #33a754;}
+header div .heder {position: relative; display: block; overflow: hidden; margin-left: 0; width: calc(100% - 120px); max-width: 970px; height: auto;}
+header div .heder div {display: table-cell; top: 0px; height: 100%; width: content-box; vertical-align: middle;}
+header div .heder div:nth-child(1) {border-right: 2px solid #fffffa; padding-right: 20px;}
+header div .heder div:nth-child(2) {padding-left: 20px;}
+header div .heder div h3 {display: block; text-align: left; vertical-align: middle; font-size: 40px; font-weight: 700; width: 100%; margin: 0; padding: 0;}
+header div .heder div p {display: table-cell; position: relative; font-size: 13px; margin-bottom: 5px; line-height: 18px; width: 100%; margin-left: 270px;}
+header div .heder div .more {color: #fffffa; text-decoration: underline; font-size: 12px;}
+header div > .tomain {position: absolute; display: block; width: 100px; height: 100%; top: 0; right: 20px; background: url(../images/logo-mono-white.png) no-repeat center; background-size: contain; z-index: 10;}
+header div > .tomain:hover {right: 30px;}
+header div > p a {color: #eed; text-decoration: underline;}
+
+header.page {height: 400px;}
+header.page foto {display: block; width: 100%; height: 100%; background: url(../images/about.jpg) no-repeat center; background-size: cover;
+    -webkit-filter: brightness(100%) contrast(100%) grayscale(40%);
+    -moz-filter: brightness(100%) contrast(100%) grayscale(40%);
+    -o-filter: brightness(100%) contrast(100%) grayscale(40%);
+    -ms-filter: brightness(100%) contrast(100%) grayscale(40%);
+    filter: brightness(100%) contrast(100%) grayscale(40%);
+}
+/*header.page foto:before {width: 100%; height: 100%; background: #33a754; opacity: 0.5;}*/
+header.page:after {width: 70px; height: 70px; background: #fffffa; top: -35px; left: 0; right: 0; margin: auto; border-radius: 0 0 10px 0;
+    -moz-transform: rotate(45deg); /* Для Firefox */
+    -ms-transform: rotate(45deg); /* Для IE */
+    -webkit-transform: rotate(45deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(45deg); /* Для Opera */
+    transform: rotate(45deg);
+}
+
+
+header.charact h3 {text-align: left; width: 420px;}
+header.docs h3 {text-align: left; width: 390px;}
+header.charact p:after {height: 80px;}
+header.docs p:after {height: 80px;}
+
+header.company foto {background-image: url(../images/partners.jpg);}
+header.client foto {background-image: url(../images/clients.jpg);}
+header.press foto {background-image: url(../images/press.jpg);}
+header.news foto {background-image: url(../images/news.jpg);}
+header.charact foto {background-image: url(../images/charact.jpg);}
+header.contacts foto {background-image: url(../images/contacts.jpg);}
+
+.mission {width: 100%; max-width: 1200px; margin: 100px auto; transition: .5s;}
+.mission div {display: table-cell; width: 33.33%; padding: 0 20px; text-align: center;}
+.mission div .h1 {position: relative; font-size: 30px; text-transform: uppercase; color: #33a754; margin-bottom: 20px;}
+.mission div .h1:before {width: 100px; height: 2px; background: #bba; left: 0; right: 0; bottom: -15px; margin: auto;}
+.mission div p {line-height: 20px; color: #bba;}
+
+.culture {display: block; position: relative; width: 100%; max-width: 1200px; margin: 0 auto; height: 200px; margin-bottom: 50px;}
+.culture > p {position: relative; display: block; text-align: center; font-size: 40px; text-transform: uppercase; color: #ddc;}
+.culture > p:before {width: 300px; height: 2px; background: #ddc; left: 0; right: 0; top: -10px; margin: auto;}
+.culture > p:after {width: 300px; height: 2px; background: #ddc; left: 0; right: 0; bottom: -10px; margin: auto;}
+.culture div {position: relative; display: block; width: 12.5%; height: 100%; float: left; background-position: center; background-repeat: no-repeat; background-size: auto;}
+.culture div:before {height: 30px; border-right: 1px solid #eed; top: 0; bottom: 0; right: 0; margin: auto 0;}
+.culture div:last-child:before {border: none;}
+.culture .cult1 {background-image: url(../images/culture1.png);}
+.culture .cult2 {background-image: url(../images/culture2.png);}
+.culture .cult3 {background-image: url(../images/culture3.png);}
+.culture .cult4 {background-image: url(../images/culture4.png);}
+.culture .cult5 {background-image: url(../images/culture5.png);}
+.culture .cult6 {background-image: url(../images/culture6.png);}
+.culture .cult7 {background-image: url(../images/culture7.png);}
+.culture .cult8 {background-image: url(../images/culture8.png);}
+.culture div p {position: absolute; text-align: center; width: 100%; bottom: 50px; color: #33a754;}
+.culture div:hover p {}
+
+charact {overflow: hidden; display: block; width: 100%; left: 0; right: 0; margin: 0 auto; padding: 10px; background: url(../images/index2.jpg) no-repeat center; background-size: cover;}
+charact > div {position: relative; display: block; width: 33.33%; overflow: hidden; height: 300px; float: left;}
+
+charact > div border {position: absolute; display: block; width: calc(100% - 20px); height: calc(100% - 20px); left: 0; right: 0; top: 0; bottom: 0; margin: auto; border: 1px solid #fffffa; transition: 0.5s;}
+charact > div:hover border {border: 1px solid #33a754;}
+charact > div images {display: block; width: 100%; height: 100%; opacity: 0; background-position: center; background-repeat: no-repeat; background-size: cover; float: left; transition: 0.5s;}
+charact > div images:before {width: 100%; height: 100%; background: #332; opacity: 0.7;}
+charact > div:hover images {opacity: 1;}
+charact > div > div {position: absolute; display: block; width: 350px; height: 60px; left: 0; right: 0; top: 0; bottom: 0; margin: auto; color: #fffffa; text-align: center; transition: 0.3s;}
+charact > div > div:before {width: 150px; height: 2px; background: #fffffa; left: 0; right: 0; top: -10px; margin: 0 auto;}
+charact > div > div:after {width: 50px; height: 2px; background: #fffffa; left: 0; right: 0; bottom: -35px; margin: 0 auto;}
+charact > div:hover div {top: -50px;}
+charact > div > div > p {font-size: 16px;}
+charact > div > div > span {font-size: 40px; font-family: 'Roboto Slab', serif;}
+
+charact > div a {position: absolute; display: block; padding: 10px; width: 130px; text-align: center; color: #ddc; border: 2px solid #ddc; left: 0; right: 0; top: 310px; margin: auto;}
+charact > div a:hover {color: #33a754; border: 2px solid #33a754;}
+charact > div:hover a {top: 200px;}
+
+centre .cols {overflow: hidden; display: block; float: left;}
+centre .news {width: calc(100% - 350px);}
+centre .news > div {display: block; width: calc(33.33% - 20px); height: 400px; margin: 0 10px 50px 10px; background: #fffffa; border-bottom: 3px solid #33a754; float: left;}
+centre .news > div foto {position: relative; overflow: hidden; display: block; width: 100%; height: 200px; background: no-repeat center; background-size: 120%; transition: 0.5s;}
+centre .news > div foto:after {width: 30px; height: 30px; transform: rotate(45deg); background: #fffffa; border-radius: 3px 0 0 0; left: 0; right: 0; bottom: -20px; margin: auto; transition: 0.5s;}
+centre .news > div:hover foto {background-size: 150%;}
+centre .news > div:hover foto:after {background: #33a754;}
+centre .news > div date {position: relative; display: block; margin-top: 10px; padding: 10px; font-size: 22px; font-family: 'Roboto Slab', serif; color: #776; text-align: center;}
+centre .news > div date span {font-size: 16px; margin: 0 5px;}
+centre .news > div date:before {position: absolute; width: 50px; height: 2px; background: #ddc; left: 0; right: 0; bottom: 0px; margin: auto;}
+centre .news > div p {display: block; padding: 10px; font-size: 16px; color: #776; line-height: 20px; text-align: center;}
+centre .news > div span {display: none;}
+centre .news > div:hover more {opacity: 1;}
+centre .news > div more {position: absolute; display: block; opacity: 0; top: 200px; width: 100%; height: 200px; background: #33a754; transition: 0.5s;}
+centre .news > div more a {position: absolute; width: 120px; height: 38px; padding: 10px; left: 0; right: 0; top: 0; bottom: 0; margin: auto; text-align: center; color: #ddc; border: 2px solid #ddc;}
+centre .news > div more a:hover {color: #fffffa; border: 2px solid #fffffa;}
+
+centre .tape > div:first-child {width: calc(100% - 20px); background: #eed; border-bottom: none;}
+centre .tape > div:first-child foto {width: 50%; height: 100%; background-size: cover; margin-right: 30px; float: left;}
+centre .tape > div:first-child foto:after {width: 50px; height: 50px; left: calc(100% - 20px); bottom: 0; top: 0; background: #eed; border-radius: 0 0 0 5px;}
+centre .tape > div:first-child date {text-align: left; margin-left: calc(50% + 10px); margin-top: 20px;}
+centre .tape > div:first-child date:before {left: 18px; margin: 0;}
+centre .tape > div:first-child p {text-align: left; padding-right: 30px; margin-left: calc(50% + 10px); font-size: 26px; line-height: 28px;}
+centre .tape > div:first-child span {display: block; font-size: 12px; line-height: 18px; padding-right: 20px;}
+centre .tape > div:first-child more {position: absolute; opacity: 1; display: block; bottom: -120px; right: 0; margin: auto; height: 40px; background: none;}
+centre .tape > div:first-child more a {position: absolute; width: 120px; height: 38px; padding: 10px; right: -180px; text-align: center; color: #776; border: 2px solid #776;}
+centre .tape > div:first-child more a:hover {color: #33a754; border: 2px solid #33a754;}
+
+centre .newsmain {width: 100%;}
+centre .newsmain > div {width: calc(25% - 20px);}
+centre .newsmain > div type {display: block; width: 100%; margin: 10px 0 -10px 0; text-align: center; font-size: 12px; color: #776;}
+
+centre .apress {width: 350px; padding-left: 20px; overflow: hidden;}
+centre .apress h6 {display: block; padding: 15px 0; margin-bottom: 20px; text-align: center; text-transform: uppercase; font-size: 26px; background: #33a754; color: #fffffa;}
+centre .apress > div {position: relative; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #ddc;}
+centre .apress > div foto {display: block; position: absolute; top: 0; right: -150px; width: 150px; height: calc(100% - 10px); border-left: 10px solid #fffffa; background-size: cover; background-position: center; background-repeat: no-repeat; transition: 0.3s;}
+centre .apress > div date {display: block; font-size: 18px; margin-bottom: 10px;}
+centre .apress > div p {line-height: 18px;}
+centre .apress > div a {font-size: 12px;}
+centre .apress > div:hover foto {right: 0;}
+
+centre .newsview {}
+centre .newsview img {display: none;}
+centre .newsview .foto {position: relative; overflow: hidden; display: block; width: 50%; height: 400px; background-position: center; background-size: cover; background-repeat: no-repeat; float: left;}
+centre .newsview .foto .video {display: block; width: 100%; height: 100%; right: -700px; z-index: 1; transition: 0.5s;}
+centre .newsview .foto .play {position: absolute; display: block; width: 50px; height: 50px; bottom: 30px; right: 30px; background: url(../images/play.png) no-repeat center; background-size: cover; z-index: 100; transition: 0.3s;}
+centre .newsview .foto .stop {position: absolute; display: none; width: 50px; height: 50px; bottom: 30px; right: 30px; background: url(../images/stop.png) no-repeat center; background-size: cover; z-index: 100; transition: 0.3s;}
+centre .newsview .foto .play:before, centre .newsview .foto .stop:before {content: attr(alt); right: 55px; top: 20px; text-transform: uppercase; color: #fffffa;}
+centre .newsview .foto .play:hover, centre .newsview .foto .stop:hover {opacity: 0.5; cursor: pointer;}
+centre .newsview .title {display: block; width: 50%; margin-left: 50%; height: 400px; background: #eed; padding: 70px 30px;}
+centre .newsview .title h1 {font-size: 30px; text-align: left;}
+centre .newsview .title p {line-height: 20px;}
+centre .newsview .title type {position: absolute; left: 30px; top: 30px; text-transform: uppercase;}
+centre .newsview .title date {position: absolute; left: 30px; bottom: 30px;}
+centre .newsview .title social {position: absolute; display: block; width: 118px; height: 25px; bottom: 30px; right: 30px; overflow: hidden;}
+centre .newsview .title .source {position: absolute; right: 30px; top: 28px; font-size: 11px;}
+centre .newsview .text {margin: 30px 0;}
+
+centre .newsview .newsGallery {display: block; overflow: hidden;}
+centre .newsview .newsGallery a {display: block; width: 25%; height: 200px; background-color: #eed; background-size: cover; background-position: center; float: left;}
+centre .newsview .newsGallery a:hover {opacity: 0.7;}
+
+
+
+centre a.allnews, centre a.char {position: relative; display: block; width: 160px; padding: 15px 0; margin: 0 auto; background: #33a754; color: #fffffa; border: 3px solid transparent; text-transform: uppercase; text-align: center;}
+centre a.char {width: 280px;}
+centre a.allnews:hover, centre a.char:hover {color: #33a754; background: #fffffa; border: 3px solid #33a754;}
+
+centre .archive {display: block; overflow: hidden; margin-bottom: 50px;}
+centre .archive > div {display: block; width: calc(50% - 10px); padding: 15px; border-bottom: 1px solid #ddc; float: left;}
+centre .archive > div:nth-child(odd) {margin-right: 10px;}
+centre .archive > div foto {display: block; width: 100px; height: 100px; margin-right: 10px; background-size: cover; float: left;}
+centre .archive > div date {position: relative; display: block; margin-bottom: 10px; font-size: 22px; font-family: 'Roboto Slab', serif; color: #776;}
+centre .archive > div date span {font-size: 16px; margin: 0 5px;}
+
+centre ul.strategy {overflow: hidden;}
+centre ul.strategy li {display: table-cell; width: 33.33%; padding: 10px;}
+centre ul.strategy li span {display: block; font-size: 22px; color: #33a754; line-height: 22px; margin-bottom: 10px;}
+centre ul.strategy li p {line-height: 18px;}
+
+centre .text {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 50px;
+    -moz-column-gap: 50px;
+    column-gap: 50px;
+    -webkit-column-rule: 1px solid #eed;
+    -moz-column-rule: 1px solid #eed;
+    column-rule: 1px solid #eed;
+    margin-bottom: 50px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+}
+
+ul.serv {overflow: hidden; margin-bottom: 30px;}
+ul.serv li {position: relative; display: block; width: calc(25% - 8px); height: 200px; text-align: center; font-size: 14px; line-height: 20px; padding: 60px 10px 10px 10px; margin: 0 10px 10px 0; float: left;}
+ul.serv li:nth-child(4), ul.serv li:nth-child(8) {margin-right: 0;}
+ul.serv li:nth-child(1), ul.serv li:nth-child(2), ul.serv li:nth-child(3), ul.serv li:nth-child(4) {border-bottom: 1px solid #ddc; height: 140px;}
+ul.serv li:before {content: attr(num); top: 20px; left: 0; right: 0; margin: auto; font-size: 40px; color: #bba;}
+ul.serv li:after {width: 100px; height: 2px; background: #33a754; top: 55px; left: 0; right: 0; margin: auto;}
+
+ul.charact {overflow: hidden;}
+ul.charact li {position: relative; display: block; width: 33.33%; float: left; padding: 50px 0; text-align: center;}
+ul.charact li:after {width: 200px; height: 2px; background: #ddc; left: 0; right: 0; bottom: 0px; margin: auto;}
+ul.charact li num {display: block; font-size: 50px; padding: 5px 0;}
+
+centre .gallery {display: block; overflow: hidden; margin-bottom: 50px;}
+centre .gallery a {position: relative; display: block; width: calc(25% - 20px); height: 200px; margin: 10px; background-size: cover; background-position: center; float: left;}
+centre .gallery a:before {position: absolute; width: 100%; height: 100%; background: #33a754 url(../images/zoom.png) no-repeat center; background-size: 30px; opacity: 0; transition: 0.3s;}
+centre .gallery a:hover:before {opacity: 0.5; background-size: 50px;}
+
+centre .docs {display: block; overflow: hidden;}
+centre .docs a {display: block; width: 33.33%; height: 500px; color: #776; padding: 10px; float: left;}
+centre .docs a foto {display: block; width: 100%; height: 250px; margin-bottom: 10px; background-size: cover; background-position: top center; background-repeat: no-repeat; border-bottom: 5px solid #33a754; transition: 0.3s; opacity: 0.5;}
+/*centre .docs a foto {-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: grayscale(100%);}*/
+centre .docs a span {display: block; font-size: 24px; margin-bottom: 10px;}
+centre .docs a p {line-height: 18px;}
+centre .docs a:hover foto {opacity: 1; height: 280px;}
+
+.team {overflow: hidden;}
+.team div {display: block; position: relative; margin: 40px; width: calc(33.33% - 80px); height: 550px; text-align: center; border-bottom: 2px solid #33a754; float: left; }
+.team div foto {position: relative; display: block; width: 100%; height: 400px; background-position: top center; margin-bottom: 30px; background-size: cover;}
+.team div .nofoto {background: #eed url(../userfiles/team/nofoto.png) no-repeat center top; background-size: cover;}
+.team div foto:after {width: 30px; height: 30px; transform: rotate(45deg); background: #fffffa; border-radius: 3px 0 0 0; left: 0; right: 0; bottom: -20px; margin: auto; transition: 0.5s;}
+.team div name {position: relative; display: block; width: 100%; padding: 10px 0; font-size: 20px;}
+.team div name:before {width: 70px; height: 3px; left: 0; right: 0; bottom: -3px; margin: auto; background: #bba;}
+.team div pos {position: relative; display: block; width: 100%; padding: 10px; font-size: 12px;}
+
+partners {display: block; width: 100%; text-align: center; overflow: hidden; border-top: 1px solid #ddc;}
+partners a {position: relative; display: block; width: 16.6%; height: 150px; margin: 0 auto; float: left; background-position: center; background-repeat: no-repeat; transition: 0.3s;}
+partners a {-webkit-filter: grayscale(70%); -moz-filter: grayscale(70%); -ms-filter: grayscale(70%); -o-filter: grayscale(70%); filter: grayscale(70%);}
+partners a:hover {background-position: center 35px;}
+partners a:hover {-webkit-filter: grayscale(0%); -moz-filter: grayscale(0%); -ms-filter: grayscale(0%); -o-filter: grayscale(0%); filter: grayscale(0%);}
+partners a:after {width: 0px; height: 2px; background: #33a754; left: 0; right: 0; bottom: 45px; margin: auto; transition: 0.3s;}
+partners a:hover:after {width: 50px;}
+
+centre .client form {padding: 20px; width: 300px; margin-right: 30px; float: left; background: #33a754;}
+centre .client form span {display: block; font-size: 27px; color: #fffffa; margin-bottom: 20px; text-transform: uppercase;}
+centre .client form input {width: 100%; padding: 15px; border: none; margin-bottom: 20px; color: #776; background: rgba(255,255,240,0.15); font-size: 18px; color: #fffffa;}
+centre .client form input[type="submit"] {width: 150px; border: 1px solid #fffffa; color: #fffffa; margin: 0 auto; font-family: 'Roboto Slab', serif;}
+centre .client form input[type="submit"]:hover {border: 1px solid #eed; color: #eed; cursor: pointer;}
+
+centre .client intro {margin-bottom: 20px;}
+centre .client ul {padding: 15px; margin-left: 330px; margin-bottom: 10px;}
+centre .client ul li {padding: 10px 0 10px 25px; background: url(../images/list.png) no-repeat left center; background-size: auto 15px;}
+
+footer {position: relative; display: block; padding: 70px 30px; background: #eed no-repeat center bottom; color: #776; background-size: cover; background-attachment: fixed; overflow: hidden;}
+footer > div {width: 100%; max-width: 1200px;}
+footer > div logo {position: relative; display: block; width: 100px; height: 50px; background: url(../images/logo.png) no-repeat center; background-size: cover; margin: 0 auto 15px;}
+
+footer div p {text-align: center; margin-bottom: 5px;}
+footer div .title {font-size: 30px; font-weight: bold; text-transform: uppercase; margin-bottom: 30px; color: #776;}
+footer div .title:before {width: 150px; height: 5px; background: #33a754; left: 0; right: 0; margin: 35px auto 0;}
+footer:before {width: 50px; height: 50px; background: #fffffa; border-radius: 0 0 5px 0; left: 0; right: 0; top: -35px; margin: auto;
+    -moz-transform: rotate(45deg); /* Для Firefox */
+    -ms-transform: rotate(45deg); /* Для IE */
+    -webkit-transform: rotate(45deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(45deg); /* Для Opera */
+    transform: rotate(45deg);
+}
+
+footer div p.h1 {font-size: 25px;}
+footer div p.tel {font-size: 20px;}
+footer div a {position: relative; display: block; width: 150px; text-align: center; margin: 0 auto;}
+footer div a:hover {}
+footer div a:before {width: 0; height: 2px; background: #33a754; left: 0; right: 0; bottom: -5px; margin: 0 auto; transition: 0.3s;}
+footer div a:hover:before {width: 80px;}
+
+footer a.fb {position: absolute; display: block; width: 30px; height: 30px; left: 30px; right: 0; bottom: 5px; margin: auto; background: #bba url(../images/fb.png) no-repeat center; background-size: cover; right: 30px; bottom: 30px; cursor: pointer;}
+.fb:hover {background-color: #33a754;} 
+
+mail {position: relative; display: block; width: 100%; background: #33a754 url(../images/mail.jpg) no-repeat center; padding: 30px 0;}
+mail:before {width: 100%; height: 100%; top: 0; left: 0; background: #33a754; opacity: 0.9;}
+mail form {position: relative; overflow: hidden; text-align: right; width: 1000px; left: 0; right: 0; margin: 0 auto;}
+mail form div {width: calc(33.33% - 9px); height: auto; margin: 0 10px 10px 0; float: left;}
+mail form div.dashicons-portfolio {margin-right: 0;}
+mail form input, textarea {position: relative; padding: 10px 10px 10px 40px; width: 100%; border: none; border-bottom: 1px solid #fffffa; background: rgba(230,230,230,0); color: #fffffa; resize: none; font-family: 'PT Sans', sans-serif; transition: 0.3s;}
+mail form input:hover, textarea:hover, input:focus, textarea:focus {background: rgba(255,255,240,0.15);}
+mail form div.dashicons-text {width: calc(100% - 170px);}
+mail form div.sub {width: auto;}
+mail form textarea {height: 39px;}
+mail form input[type="submit"] {width: 150px; padding: 10px; border: 1px solid #fffffa; color: #fffffa;}
+mail form input[type="submit"]:hover {border: 1px solid #eed; color: #eed; cursor: pointer;}
+
+.made {position: absolute; display: block; bottom: 23px; left: 40px; padding: 10px; background: #bba; color: #fffffa; font-size: 12px; z-index: 100;}
+.made:hover {background: #33a754}
+.made:after {position: absolute; display: block; content: ''; width: 0px; height: 12px; top: -30px; left: 0; overflow: hidden; transition: 0.5s; color: #776;}
+.made:hover:after {position: absolute; content: attr(alt); padding-left: 15px; width: 450px;}
+
+@media screen and (max-width: 1920px){
+    
+}
+@media screen and (max-width: 1440px){
+    
+}
+@media screen and (max-width: 1280px){
+    header {height: 550px;}
+}
+@media screen and (max-width: 1150px){
+    header {height: 450px;}
+}
+
+
+/*правки*/
+
+header screen .play_button:hover {opacity: .5;}

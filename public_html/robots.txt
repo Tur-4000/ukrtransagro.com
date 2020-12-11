@@ -1,0 +1,9 @@
+User-agent: *
+
+Disallow: /core/
+Disallow: /views/
+Disallow: /404/
+Disallow: /sm_admin/
+
+Sitemap: http://site.com/sitemap.xml
+Host: site.com
