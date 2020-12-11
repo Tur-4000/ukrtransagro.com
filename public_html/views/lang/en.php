@@ -8,6 +8,7 @@ $word = array(
     'strategy' => 'Strategy',
     'team' => 'Team',
     'docs' => 'Certifications',
+    'reports' => 'Regulatory reporting',
     'services' => 'Services',
     'charact' => 'Terminal Features',
     'client' => 'Personal account',

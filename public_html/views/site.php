@@ -76,6 +76,7 @@ use SimpleQueryBuilder\Query;
                         <li><a href="strategy"><?=$word['strategy'];?></a></li>
                         <li><a href="team"><?=$word['team'];?></a></li>
                         <li><a href="docs"><?=$word['docs'];?></a></li>
+                      <li><a href="reports"><?=$word['reports'];?></a></li>
                     </ul>
                 </li>
                 <li><a href='services'><?=$word['services'];?></a>
