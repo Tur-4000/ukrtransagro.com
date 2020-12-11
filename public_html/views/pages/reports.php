@@ -27,7 +27,7 @@ $reports = (new Query($pdo, 'reports'))
     <?php endif; ?>
     <div class="reports">
         <?php foreach ($reports as $item): ?>
-            <p><?=$item['report_name'] ?></p>
+            <p><?=$item['report_name_' . $lang] ?></p>
         <?php endforeach; ?>
     </div>
 </centre>
