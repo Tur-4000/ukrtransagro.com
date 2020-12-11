@@ -137,8 +137,8 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
 
                 $count ++;
             }
-
-            if (in_array($table, array('news', 'gallery', 'users', 'docs'))) { // если переменная содержит то что указанно
+//TODO: переписать обработку для таблицы reports
+            if (in_array($table, array('news', 'gallery', 'users', 'docs', 'reports'))) { // если переменная содержит то что указанно
                 $img = uploadFile($table);
                 if ((!empty($img)) && ($row[$count] == 'img')) {
                     $data[$count] = uploadFile($table);

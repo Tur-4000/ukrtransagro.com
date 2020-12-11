@@ -56,7 +56,7 @@ function uploadFile($table)
     $filename = $_FILES['filename']['name'];
     $size = $_FILES['filename']['size'];
     $source = $_FILES['filename']['tmp_name'];
-    $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$/';
+    $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$|(pdf)$/';
 
     if (preg_match($pattern, $filename) && $size < MAX_FILE_SIZE) {
         $newName = date('Y-M-d-His');
@@ -67,6 +67,8 @@ function uploadFile($table)
             $newName .= '.png';
         } elseif (preg_match('/(?i)[.](gif)$/', $filename)) {
             $newName .= '.gif';
+        } elseif (preg_match('/(?i)[.](pdf)$/', $filename)) {
+            $newName .= '.pdf';
         }
 
         if ($table == 'users') {
@@ -77,8 +79,7 @@ function uploadFile($table)
 
         move_uploaded_file($source, $target);
 
-        $img = $newName;
-        return $img;
+        return $newName;
     } else {
         return false;
     }

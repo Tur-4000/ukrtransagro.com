@@ -26,6 +26,7 @@ $reports = (new Query($pdo, 'reports'))
         <div><?=$page['text_'.$lang];?></div>
     <?php endif; ?>
     <div class="reports">
+      <p>здесь будут размещаться ссылки на скачивание отчётов</p>
         <?php foreach ($reports as $item): ?>
             <p><?=$item['report_name_' . $lang] ?></p>
         <?php endforeach; ?>

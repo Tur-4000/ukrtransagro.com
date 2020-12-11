@@ -11,16 +11,22 @@
         <div class="box"><input type="radio" name="public" value="no" checked>Нет</div>
         <pre></pre>
         <div id="lang_ru" class="language">
-            <label>Название документа RU</label><input type="text" name='title_ru' value='' placeholder=""><pre></pre>
-            <label>Описание RU</label><textarea name="descript_ru" style="width: 715px;" placeholder=""></textarea><pre></pre>
+            <label>Название документа RU</label>
+          <input type="text" name='title_ru' value='' placeholder=""><pre></pre>
+            <label>Описание RU</label>
+          <textarea name="descript_ru" style="width: 715px;" placeholder=""></textarea><pre></pre>
         </div>
         <div id="lang_ua" class="language">
-            <label>Название документа UA</label><input type="text" name='title_ua' value='' placeholder=""><pre></pre>
-            <label>Описание UA</label><textarea name="descript_ua" style="width: 715px;" placeholder=""></textarea><pre></pre>
+            <label>Название документа UA</label>
+          <input type="text" name='title_ua' value='' placeholder=""><pre></pre>
+            <label>Описание UA</label>
+          <textarea name="descript_ua" style="width: 715px;" placeholder=""></textarea><pre></pre>
         </div>
         <div id="lang_en" class="language">
-            <label>Название документа EN</label><input type="text" name='title_en' value='' placeholder=""><pre></pre>
-            <label>Описание EN</label><textarea name="descript_en" style="width: 715px;" placeholder=""></textarea><pre></pre>
+            <label>Название документа EN</label>
+          <input type="text" name='title_en' value='' placeholder=""><pre></pre>
+            <label>Описание EN</label>
+          <textarea name="descript_en" style="width: 715px;" placeholder=""></textarea><pre></pre>
         </div>
         <input type="file" name="filename"> * файл не более 2мб.!<pre></pre>
         <input type="hidden" name='table' value='docs'>
