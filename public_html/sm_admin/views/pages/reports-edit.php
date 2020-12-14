@@ -17,8 +17,8 @@ $data = (new Query($pdo, $table))
         </div>
         <h2 class="editTitle">Добавление материала [ Регламентные отчёты ]</h2>
         <label>Публикация:</label>
-        <div class="box"><input type="radio" name="published" value="yes" <?php if($data['published'] == 1) echo 'checked';?>>Да</div>
-        <div class="box"><input type="radio" name="published" value="no" <?php if($data['published'] == 0) echo 'checked';?>>Нет</div>
+        <div class="box"><input type="radio" name="published" value=1 <?php if($data['published'] == 1) echo 'checked';?>>Да</div>
+        <div class="box"><input type="radio" name="published" value=0 <?php if($data['published'] == 0) echo 'checked';?>>Нет</div>
         <pre></pre>
 
         <label for="report_year">Отчетный год *</label>
@@ -38,7 +38,7 @@ $data = (new Query($pdo, $table))
         </div>
         <input type="file" name="filename"> * файл не более 2мб.!<pre></pre>
         <input type="hidden" name='id' value='<?=$data['id'];?>'>
-        <input type="hidden" name='oldReport' value='<?=$data['report_file_name'];?>'>
+        <input type="hidden" name='oldImg' value='<?=$data['report_file_name'];?>'>
         <input type="hidden" name='table' value='reports'>
         <input type="submit" name="edit" value="сохранить изменения!" style="width: 200px;">
     </form>

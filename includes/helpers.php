@@ -97,7 +97,7 @@ function deleteData($pdo, $table, $id)
         $result = (new Query($pdo, $table))
             ->select(['report_file_name'])
             ->where('id', $id)
-            ->all();
+            ->fetch();
     } else {
         $result = (new Query($pdo, $table))
             ->select(['img'])

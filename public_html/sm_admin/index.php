@@ -29,10 +29,6 @@ use function Uta\User\forgot;
 $base = $_SERVER['HTTP_HOST'];
 $pdo = getPdo();
 
-//include ('core/connectDb.php');
-//include ('core/adminFns.php');
-//include ('core/regFns.php');
-
 include ('views/lang/ru.php');
 
 //if(empty($_GET['view'])) $view = 'login';
@@ -59,9 +55,9 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
         $id = $_POST['id'];
         $table = $_POST['table'];
         $oldImg = $_POST['oldImg'];
-        if ($_POST['password']) {  // шифруем пароль
-            $_POST['password'] = sha1(md5(clearData($_POST['password'])));
-        }
+//        if ($_POST['password']) {  // шифруем пароль
+//            $_POST['password'] = sha1(md5(clearData($_POST['password'])));
+//        }
         // удаляем не уже не нужные переменные из POST
         unset($_POST['edit']);
         unset($_POST['table']);
@@ -71,11 +67,11 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
         $count = 0;
         foreach ($_POST as $ArrKey => $ArrStr) {
             $row[$count] = $ArrKey;
-            $data[$count] = $_POST[$ArrKey];
+            $data[$count] = $ArrStr;
             $count ++;
         }
 
-        if (!empty($_FILES['filename']['name'])) { // если переменная содержит то что указанно
+        if (!empty($_FILES['filename']['name'])) {
 
             // удаляем старую картинку если она есть
             if (!empty($oldImg)) {
@@ -88,9 +84,15 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
                 }
             }
 
-            $img = uploadFile($table);
-            $row[$count] = 'img';
-            $data[$count] = $img;
+            if ($table === 'reports') {
+                $report = uploadFile($table);
+                $row[$count] = 'report_file_name';
+                $data[$count] = $report;
+            } else {
+                $img = uploadFile($table);
+                $row[$count] = 'img';
+                $data[$count] = $img;
+            }
         }
 
         unset($_POST);
