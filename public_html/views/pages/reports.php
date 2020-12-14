@@ -5,6 +5,17 @@ $reports = (new Query($pdo, 'reports'))
     ->where('published', true)
     ->orderBy('report_year', 'DESC')
     ->all();
+
+$reportsByYear = [];
+foreach ($reports as $report) {
+  $year = $report['report_year'];
+  $reportsByYear[$year][] = $report;
+}
+//echo '<pre>';
+//print_r($reportsByYear);
+//echo '</pre>';
+//
+//die();
 ?>
 
 <header class="page">
@@ -25,10 +36,14 @@ $reports = (new Query($pdo, 'reports'))
     <?php if(!empty($page['text_'.$lang])): ?>
         <div><?=$page['text_'.$lang];?></div>
     <?php endif; ?>
+
     <div class="reports">
-      <p>здесь будут размещаться ссылки на скачивание отчётов</p>
-        <?php foreach ($reports as $item): ?>
-            <p><?=$item['report_name_' . $lang] ?></p>
+        <?php foreach ($reportsByYear as $year => $reports): ?>
+          <div><?=$year?></div>
+          <?php foreach ($reports as $report): ?>
+            <p><?=$report['report_name_' . $lang] ?> <a href="../userfiles/reports/<?=$report['report_file_name']?>">Скачать</a></p>
+          <?php endforeach; ?>
         <?php endforeach; ?>
     </div>
+
 </centre>
