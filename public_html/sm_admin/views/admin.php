@@ -38,7 +38,7 @@
                         <li><a href="mission">Миссия - Видение - Ценности</a></li>
                         <li><a href="charact">Характеристики Терминала</a></li>
                         <li><a href="docs">Сертификаты и дипломы</a></li>
-                      <li><a href="reports-edit">Регламентные отчёты</a></li>
+                      <li><a href="reports">Регламентные отчёты</a></li>
                         <li><a href="services_edit">Перечень Услуг</a></li>
                         <li><a href="team">Наша команда</a></li>
                         <li><a href="news">Новости компании</a></li>

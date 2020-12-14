@@ -3,7 +3,7 @@ use SimpleQueryBuilder\Query;
 
 $reports = (new Query($pdo, 'reports'))
     ->where('published', true)
-    ->orderBy('num')
+    ->orderBy('report_year', 'DESC')
     ->all();
 ?>
 

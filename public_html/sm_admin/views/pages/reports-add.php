@@ -10,6 +10,10 @@
         <div class="box"><input type="radio" name="published" value=1>Да</div>
         <div class="box"><input type="radio" name="published" value=0 checked>Нет</div>
         <pre></pre>
+
+      <label for="report_year">Отчетный год *</label>
+      <input type="number" id="report_year" name="report_year" placeholder="необходимо ввести год в виде 2019">
+
         <div id="lang_ru" class="language">
             <label>Название документа RU</label>
             <input type="text" name='report_name_ru' value='' placeholder=""><pre></pre>

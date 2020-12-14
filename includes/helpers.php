@@ -93,11 +93,18 @@ function uploadFile($table)
  */
 function deleteData($pdo, $table, $id)
 {
-    $result = (new Query($pdo, $table))
-        ->select(['img'])
-        ->where('id', $id)
-        ->all();
-    // удаление отдельной фотографии из альбома новостей
+    if ($table === 'reports') {
+        $result = (new Query($pdo, $table))
+            ->select(['report_file_name'])
+            ->where('id', $id)
+            ->all();
+    } else {
+        $result = (new Query($pdo, $table))
+            ->select(['img'])
+            ->where('id', $id)
+            ->all();
+    }
+
     if (!empty ($result['img'])) {
         if ($table == 'newsfoto') {
             $target = '../userfiles/news/newsAlbum/' . $result['img'];
@@ -128,6 +135,11 @@ function deleteData($pdo, $table, $id)
             $target = '../userfiles/'.$table.'/'.$result['img'];
             unlink($target);
         }
+    }
+
+    if (!empty($result['report_file_name'])) {
+        $target = '../userfiles/reports/' . $result['report_file_name'];
+        unlink($target);
     }
 
     (new Query($pdo, $table))

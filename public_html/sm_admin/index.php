@@ -137,8 +137,8 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
 
                 $count ++;
             }
-//TODO: переписать обработку для таблицы reports
-            if (in_array($table, array('news', 'gallery', 'users', 'docs', 'reports'))) { // если переменная содержит то что указанно
+
+            if (in_array($table, array('news', 'gallery', 'users', 'docs'))) {
                 $img = uploadFile($table);
                 if ((!empty($img)) && ($row[$count] == 'img')) {
                     $data[$count] = uploadFile($table);
@@ -146,13 +146,17 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
                 $row[$count] = 'img';
                 $data[$count] = "$img";
             }
+
+            if ($table === 'reports') {
+                $report = uploadFile($table);
+                if ((!empty($report)) && ($row[$count] == 'report_file_name')) {
+                    $data[$count] = uploadFile($table);
+                }
+                $row[$count] = 'report_file_name';
+                $data[$count] = "$report";
+            }
         }
         unset($_POST);
-
-//        $last = insertData($table,$row,$data);
-//        $id = getLastData($table);
-//        $link = $table.'-edit/'.$id['id'];
-//        header('Location: '.$link);
 
         (new Query($pdo, $table))
             ->prepareData($row, $data)
