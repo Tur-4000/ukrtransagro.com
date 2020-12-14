@@ -2,7 +2,7 @@
     use SimpleQueryBuilder\Query;
 
     $data = (new Query($pdo, 'reports'))
-    ->orderBy('id')
+    ->orderBy('report_year', 'DESC')
     ->all();
 ?>
 

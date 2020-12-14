@@ -76,14 +76,7 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
         }
 
         if (!empty($_FILES['filename']['name'])) { // если переменная содержит то что указанно
-//            if(($table == 'users') && (empty($oldImg))) {
-//
-//            } elseif (($table == 'users') && (!empty($oldImg))) {  // удаляем старую картинку
-//                $pathImg = 'upload/users/'.$oldImg; unlink($pathImg);
-//            } elseif ($oldImg !== '') {  // удаляем старую картинку
-//                $pathImg = '../userfiles/'.$table.'/'.$oldImg;
-//                unlink($pathImg);
-//            }
+
             // удаляем старую картинку если она есть
             if (!empty($oldImg)) {
                 if ($table == 'users') {
@@ -101,7 +94,7 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
         }
 
         unset($_POST);
-//        updateData($table, $id, $row, $data);
+
         (new Query($pdo, $table))
             ->prepareData($row, $data)
             ->where('id', $id)
