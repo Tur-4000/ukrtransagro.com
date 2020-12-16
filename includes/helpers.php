@@ -59,7 +59,7 @@ function uploadFile($table)
     $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$|(pdf)$/';
 
     if (preg_match($pattern, $filename) && $size < MAX_FILE_SIZE) {
-        $newName = date('Y-M-d-His');
+        $newName = md5($filename) . '-' . date('y-m-d-is');
         // проверяем расширение файла
         if (preg_match('/(?i)[.](jpeg)|(jpg)$/', $filename)) {
             $newName .= '.jpg';
@@ -102,7 +102,7 @@ function deleteData($pdo, $table, $id)
         $result = (new Query($pdo, $table))
             ->select(['img'])
             ->where('id', $id)
-            ->all();
+            ->fetch();
     }
 
     if (!empty ($result['img'])) {
