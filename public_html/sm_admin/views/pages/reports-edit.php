@@ -36,7 +36,7 @@ $data = (new Query($pdo, $table))
             <label>Название документа EN</label>
             <input type="text" name='report_name_en' value="<?=$data['report_name_en']?>" placeholder=""><pre></pre>
         </div>
-        <input id="reportFileInput" type="file" name="filename" accept="application/pdf" required> * файл не более 2мб. в формате pdf!<pre></pre>
+        <input id="reportFileInput" type="file" name="filename" accept="application/pdf"> * файл не более 2мб. в формате pdf!<pre></pre>
         <input type="hidden" name='id' value='<?=$data['id'];?>'>
         <input type="hidden" name='oldImg' value='<?=$data['report_file_name'];?>'>
         <input type="hidden" name='table' value='reports'>
