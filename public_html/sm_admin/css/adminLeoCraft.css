@@ -193,3 +193,31 @@ table.list {width: 100%; border: 1px solid #aaa; background: rgba(0,0,0,0.02); m
 .catButton a:hover {background: #fc0;}
 /*-- ПОДВАЛ --*/
 footer {width: 100%; height: 300px; background: #444;}
+
+.tableTitleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 3px 15px;
+    border: 1px solid #999;
+    background: linear-gradient(#aaa,#999);
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+    color: #eee;
+    font-size: 20px
+}
+.tableTitle {display: block;}
+.addButton {
+    display: block;
+    border: #FFCC00 solid 1px;
+    border-radius: 3px;
+    padding: 6px;
+    color: #FFCC00;
+}
+.addButton:hover {
+    display: block;
+    color: #000;
+    background: #fe0;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}

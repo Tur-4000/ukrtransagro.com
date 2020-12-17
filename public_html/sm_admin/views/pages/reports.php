@@ -6,36 +6,9 @@
     ->all();
 ?>
 
-<style>
-    .tableTitle {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-        padding: 3px 15px;
-        border: 1px solid #999;
-        background: linear-gradient(#aaa,#999);
-        text-shadow: 0 0 20px rgba(0,0,0,0.5);
-        color: #eee;
-        font-size: 20px
-    }
-    .addButton {
-        border: #FFCC00 solid 1px;
-        border-radius: 3px;
-        padding: 6px;
-        color: #FFCC00;
-    }
-    .addButton:hover {
-        color: #000;
-        background: #fe0;
-        text-shadow: 0 3px 10px rgba(0,0,0,0.5);
-    }
-</style>
-
-<div class="tableTitle">
-    <p style="display: block">Управление разделом [ Регламентная отчётность ]</p>
-    <a style="display: block" class="addButton" href="reports-add">+ Добавить отчёт</a>
+<div class="tableTitleContainer">
+    <p class="tableTitle">Управление разделом [ Регламентная отчётность ]</p>
+    <a class="addButton" href="reports-add">+ Добавить отчёт</a>
 </div>
 
 <table class="list">
