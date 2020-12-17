@@ -39,10 +39,21 @@ foreach ($reports as $report) {
 
     <div class="reports">
         <?php foreach ($reportsByYear as $year => $reports): ?>
-          <div class=""><?=$year?></div>
-          <?php foreach ($reports as $report): ?>
-            <p><?=$report['report_name_' . $lang] ?> <a href="../userfiles/reports/<?=$report['report_file_name']?>">Скачать</a></p>
-          <?php endforeach; ?>
+            <div class="yearContainer">
+                <span class="yearTitle"><?=$year?></span>
+            </div>
+            <div class="yearReports">
+                <?php foreach ($reports as $report): ?>
+                    <div class="report">
+                        <div class="reportLink">
+                            <a href="../userfiles/reports/<?=$report['report_file_name']?>">
+                                <?php echo file_get_contents("images/download-circular-button.svg"); ?>
+                            </a>
+                        </div>
+                        <div class="reportTitle"><?=$report['report_name_' . $lang] ?></div>
+                    </div>
+                <?php endforeach; ?>
+                </div>
         <?php endforeach; ?>
     </div>
 
