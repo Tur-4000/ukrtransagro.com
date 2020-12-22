@@ -47,7 +47,9 @@ foreach ($reports as $report) {
                     <div class="report">
                         <div class="reportLink">
                             <a href="../userfiles/reports/<?=$report['report_file_name']?>">
-                                <?php echo file_get_contents("images/download-circular-button.svg"); ?>
+                                <svg>
+                                    <use href="/images/download-circular-button.svg#Capa_1" height="2em" width="2em" />
+                                </svg>
                             </a>
                         </div>
                         <div class="reportTitle"><?=$report['report_name_' . $lang] ?></div>
