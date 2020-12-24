@@ -143,7 +143,7 @@ if (!empty($_SESSION['username']) && ($_SESSION['status']) == 'admin') {
             }
 
             if ($table === 'reports') {
-                $report = uploadFile($table);
+                $report = \Uta\Helpers\reportFileUpload($table);
                 if ((!empty($report)) && ($row[$count] == 'report_file_name')) {
                     $data[$count] = uploadFile($table);
                 }

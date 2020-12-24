@@ -1,4 +1,4 @@
-const maxReportFileSize = 2097152;
+const maxReportFileSize = 31457280;
 const alertText = 'Max report file size of 2MiB allowed!';
 
 $('#reportFileInput').bind('change', function() {

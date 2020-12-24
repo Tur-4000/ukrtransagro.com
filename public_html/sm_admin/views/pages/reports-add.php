@@ -26,7 +26,7 @@
             <label>Название документа EN</label>
             <input type="text" name='report_name_en' value='' placeholder=""><pre></pre>
         </div>
-        <input id="reportFileInput" type="file" name="filename" accept="application/pdf" required> * файл не более 2мб. в формате pdf!<pre></pre>
+        <input id="reportFileInput" type="file" name="filename" accept="application/pdf" required> * файл не более 30мб. в формате pdf!<pre></pre>
         <input type="hidden" name='table' value='reports'>
         <input type="submit" name="add" value="сохранить изменения!" style="width: 200px;">
     </form>

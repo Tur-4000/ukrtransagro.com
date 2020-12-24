@@ -4,6 +4,7 @@ namespace Uta\Helpers;
 use SimpleQueryBuilder\Query;
 
 const MAX_FILE_SIZE = 1024 * 1024 * 2;
+const MAX_REPORT_FILE_SIZE = 1024 * 1024 * 30;
 
 function formatDate(string $date, array $word)
 {
@@ -46,7 +47,7 @@ function slugify($str)
 }
 
 /**
- * Загрузка файлов на сервер
+ * Загрузка файлов изображений на сервер
  *
  * @param $table
  * @return bool|string
@@ -56,7 +57,7 @@ function uploadFile($table)
     $filename = $_FILES['filename']['name'];
     $size = $_FILES['filename']['size'];
     $source = $_FILES['filename']['tmp_name'];
-    $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$|(pdf)$/';
+    $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$/';
 
     if (preg_match($pattern, $filename) && $size < MAX_FILE_SIZE) {
         $newName = md5($filename) . '-' . date('y-m-d-is');
@@ -67,8 +68,6 @@ function uploadFile($table)
             $newName .= '.png';
         } elseif (preg_match('/(?i)[.](gif)$/', $filename)) {
             $newName .= '.gif';
-        } elseif (preg_match('/(?i)[.](pdf)$/', $filename)) {
-            $newName .= '.pdf';
         }
 
         if ($table == 'users') {
@@ -76,6 +75,32 @@ function uploadFile($table)
         } else {
             $target = '../userfiles/' . $table . '/' . $newName;
         }
+
+        move_uploaded_file($source, $target);
+
+        return $newName;
+    } else {
+        return false;
+    }
+}
+
+/**
+ *  Загрузка файла регламентной отчётности.
+ *
+ * @param $table string
+ * @return bool|string
+ */
+function reportFileUpload($table)
+{
+    $filename = $_FILES['filename']['name'];
+    $size = $_FILES['filename']['size'];
+    $source = $_FILES['filename']['tmp_name'];
+    $pattern = '/(?i)[.](pdf)$/';
+
+    if (preg_match($pattern, $filename) && $size < MAX_REPORT_FILE_SIZE) {
+        $newName = md5($filename) . '-' . date('y-m-d-is') . '.pdf';
+
+        $target = '../userfiles/' . $table . '/' . $newName;
 
         move_uploaded_file($source, $target);
 
