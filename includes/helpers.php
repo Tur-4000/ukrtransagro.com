@@ -3,7 +3,8 @@ namespace Uta\Helpers;
 
 use SimpleQueryBuilder\Query;
 
-const MAX_FILE_SIZE = 1024 * 1024 * 2;
+const IMAGE_FILE_MAX_SIZE = 1024 * 1024 * 2;
+const REPORT_FILE_MAX_SIZE = 1024 * 1024 * 30;
 
 function formatDate(string $date, array $word)
 {
@@ -46,7 +47,7 @@ function slugify($str)
 }
 
 /**
- * Загрузка файлов на сервер
+ * Загрузка файлов изображений на сервер
  *
  * @param $table
  * @return bool|string
@@ -58,8 +59,8 @@ function uploadFile($table)
     $source = $_FILES['filename']['tmp_name'];
     $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$/';
 
-    if (preg_match($pattern, $filename) && $size < MAX_FILE_SIZE) {
-        $newName = date('Y-M-d-His');
+    if (preg_match($pattern, $filename) && $size < IMAGE_FILE_MAX_SIZE) {
+        $newName = md5($filename) . '-' . date('y-m-d-is');
         // проверяем расширение файла
         if (preg_match('/(?i)[.](jpeg)|(jpg)$/', $filename)) {
             $newName .= '.jpg';
@@ -77,8 +78,33 @@ function uploadFile($table)
 
         move_uploaded_file($source, $target);
 
-        $img = $newName;
-        return $img;
+        return $newName;
+    } else {
+        return false;
+    }
+}
+
+/**
+ *  Загрузка файла регламентной отчётности.
+ *
+ * @param $table string
+ * @return bool|string
+ */
+function reportFileUpload($table)
+{
+    $filename = $_FILES['filename']['name'];
+    $size = $_FILES['filename']['size'];
+    $source = $_FILES['filename']['tmp_name'];
+    $pattern = '/(?i)[.](pdf)$/';
+
+    if (preg_match($pattern, $filename) && $size < REPORT_FILE_MAX_SIZE) {
+        $newName = md5($filename) . '-' . date('y-m-d-is') . '.pdf';
+
+        $target = '../userfiles/' . $table . '/' . $newName;
+
+        move_uploaded_file($source, $target);
+
+        return $newName;
     } else {
         return false;
     }
@@ -92,11 +118,18 @@ function uploadFile($table)
  */
 function deleteData($pdo, $table, $id)
 {
-    $result = (new Query($pdo, $table))
-        ->select(['img'])
-        ->where('id', $id)
-        ->all();
-    // удаление отдельной фотографии из альбома новостей
+    if ($table === 'reports') {
+        $result = (new Query($pdo, $table))
+            ->select(['report_file_name'])
+            ->where('id', $id)
+            ->fetch();
+    } else {
+        $result = (new Query($pdo, $table))
+            ->select(['img'])
+            ->where('id', $id)
+            ->fetch();
+    }
+
     if (!empty ($result['img'])) {
         if ($table == 'newsfoto') {
             $target = '../userfiles/news/newsAlbum/' . $result['img'];
@@ -127,6 +160,11 @@ function deleteData($pdo, $table, $id)
             $target = '../userfiles/'.$table.'/'.$result['img'];
             unlink($target);
         }
+    }
+
+    if (!empty($result['report_file_name'])) {
+        $target = '../userfiles/reports/' . $result['report_file_name'];
+        unlink($target);
     }
 
     (new Query($pdo, $table))

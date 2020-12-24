@@ -433,3 +433,12 @@ mail form input[type="submit"]:hover {border: 1px solid #eed; color: #eed; curso
 /*правки*/
 
 header screen .play_button:hover {opacity: .5;}
+
+.yearContainer {margin-bottom: 10px; font-size: 20px; padding-bottom: 2px; border-bottom: 2px solid #33a754;}
+.yearTitle {padding: 0 5px; color: #fffffa; background: #33a754;}
+.yearReports {margin-bottom: 20px; font-size: 15px;}
+.report {display: flex; margin-bottom: 10px;}
+.reportTitle {display: flex; align-items: center; flex-grow: 1; margin-left: 10px;}
+.reportLink {display: flex; align-items: center; flex-grow: 0;}
+.reportLink svg {height: 2em; width: 2em; fill: #33a754;}
+.reportLink svg:hover {height: 2em; width: 2em; fill: #254434;}

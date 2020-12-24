@@ -11,7 +11,8 @@
         <div class="box"><input type="radio" name="public" value="no" checked>Нет</div>
         <pre></pre>
         <label>Дата</label><input type="date" name='date' value='<?=date('Y-m-d');?>' style="width: auto;"><pre></pre>
-        <label>Тип новости</label><select size="1" name="type" required>
+        <label>Тип новости</label>
+        <select size="1" name="type" required>
             <option value="" selected disabled>тип новости</option>
             <option value="news">Новости компании</option>
             <option value="press">О нас в прессе</option>

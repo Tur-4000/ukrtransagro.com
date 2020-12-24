@@ -2,7 +2,7 @@
 use SimpleQueryBuilder\Query;
 
     $table = 'docs';
-//    $data = pageData($idRow,$table);
+
     $data = (new Query($pdo, $table))
         ->where('id', $idRow)
         ->fetch();

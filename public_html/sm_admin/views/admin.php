@@ -38,6 +38,7 @@
                         <li><a href="mission">Миссия - Видение - Ценности</a></li>
                         <li><a href="charact">Характеристики Терминала</a></li>
                         <li><a href="docs">Сертификаты и дипломы</a></li>
+                      <li><a href="reports">Регламентные отчёты</a></li>
                         <li><a href="services_edit">Перечень Услуг</a></li>
                         <li><a href="team">Наша команда</a></li>
                         <li><a href="news">Новости компании</a></li>
@@ -50,6 +51,7 @@
                         <li><a href="news-add">Новость</a></li>
                         <li><a href="team-add">Наша команда</a></li>
                         <li><a href="docs-add">Сертификаты и дипломы</a></li>
+                      <li><a href="reports-add">Регламентные отчёты</a></li>
                         <li><a href="users-add">Администратор</a></li>
                     </ul>
                 </div>
