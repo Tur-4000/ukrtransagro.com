@@ -3,8 +3,8 @@ namespace Uta\Helpers;
 
 use SimpleQueryBuilder\Query;
 
-const MAX_FILE_SIZE = 1024 * 1024 * 2;
-const MAX_REPORT_FILE_SIZE = 1024 * 1024 * 30;
+const IMAGE_FILE_MAX_SIZE = 1024 * 1024 * 2;
+const REPORT_FILE_MAX_SIZE = 1024 * 1024 * 30;
 
 function formatDate(string $date, array $word)
 {
@@ -59,7 +59,7 @@ function uploadFile($table)
     $source = $_FILES['filename']['tmp_name'];
     $pattern = '/(?i)[.](jpg)$|(jpeg)$|(gif)$|(png)$/';
 
-    if (preg_match($pattern, $filename) && $size < MAX_FILE_SIZE) {
+    if (preg_match($pattern, $filename) && $size < IMAGE_FILE_MAX_SIZE) {
         $newName = md5($filename) . '-' . date('y-m-d-is');
         // проверяем расширение файла
         if (preg_match('/(?i)[.](jpeg)|(jpg)$/', $filename)) {
@@ -97,7 +97,7 @@ function reportFileUpload($table)
     $source = $_FILES['filename']['tmp_name'];
     $pattern = '/(?i)[.](pdf)$/';
 
-    if (preg_match($pattern, $filename) && $size < MAX_REPORT_FILE_SIZE) {
+    if (preg_match($pattern, $filename) && $size < REPORT_FILE_MAX_SIZE) {
         $newName = md5($filename) . '-' . date('y-m-d-is') . '.pdf';
 
         $target = '../userfiles/' . $table . '/' . $newName;
