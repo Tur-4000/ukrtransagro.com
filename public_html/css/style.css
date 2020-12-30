@@ -114,7 +114,7 @@ menu info .mail:hover:before {width: 80px;}
 
 menu ul li ul {position: absolute; left: 0; top: 50px;}
 menu ul li ul li {clear: both; max-width: 150px;}
-menu ul li ul li a {font-size: 12px;}
+menu ul li ul li a {font-size: 12px; line-height: 1.1;}
 menu ul li ul li:before {width: 30px; height: 1px; background: #776; bottom: 0; left: 30px;}
 menu a.fb {position: absolute; display: block; width: 30px; height: 30px; background: #bba url(../images/fb.png) no-repeat center; left: 0; right: 0; margin: 10px auto 0; background-size: cover; cursor: pointer; z-index: 100;}
 
