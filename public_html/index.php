@@ -27,11 +27,7 @@ use function Uta\Db\getPdo;
 $pdo = getPdo();
 
 //// ПРОВЕРКА GET ЗАПРОСОВ НА ЯЗЫКИ ----------------------------------------------
-if (isset($_GET['lang'])) {
-    $lang = $_GET['lang'];
-} else {
-    $lang = 'ru';
-}
+$lang = isset($_GET['lang']) ? $lang = $_GET['lang'] : $lang = 'ua';
 
 include 'views/lang/'.$lang.'.php';
 
@@ -49,14 +45,14 @@ if (isset($_GET['podcat'])) {
     $podcat = $_GET['podcat'];
 }
 
-if (isset($_GET['uaview'])) {
-    $view = $_GET['uaview'];
+if (isset($_GET['ruview'])) {
+    $view = $_GET['ruview'];
 }
-if (isset($_GET['uacat'])) {
-    $cat = $_GET['uacat'];
+if (isset($_GET['rucat'])) {
+    $cat = $_GET['rucat'];
 }
-if (isset($_GET['uapodcat'])) {
-    $podcat = $_GET['uapodcat'];
+if (isset($_GET['rupodcat'])) {
+    $podcat = $_GET['rupodcat'];
 }
 
 if (isset($_GET['enview'])) {
@@ -96,7 +92,7 @@ $page = (new Query($pdo, 'pages'))
     ->fetch();
 
 // ПАРТНЕРСКИЕ ССЫЛКИ ---------------------------------------------------------
-if ($lang == 'ru') {
+if ($lang == 'ua') {
     $partnerLang = '';
 } else {
     $partnerLang = $lang;

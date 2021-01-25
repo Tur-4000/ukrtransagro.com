@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('close').click(function(){
        $('menu').fadeOut(500);
     });
-// АКТИУНОСТЬ МЕНЮ --------------------------------------------------------------
+// АКТИВНОСТЬ МЕНЮ --------------------------------------------------------------
     $('lang, [lang = '+lang+']').each(function(){
         $('lang a').removeClass('active');
         $(this).addClass('active');
@@ -40,11 +40,11 @@ $(document).ready(function() {
         }
     })
 // ОБРАБОТКА ССЫЛОК ДЛЯ ЯЗЫКОВ =================================================
-    if(lang == 'ua') {
+    if(lang == 'ru') {
         $('menu ul a, charact a, a.link, .news a').each(function(){
             var target = $(this).attr('target');
             if(target != '_blank') {
-            $(this).attr('href', 'ua/' + $(this).attr('href'));
+            $(this).attr('href', 'ru/' + $(this).attr('href'));
             }
         });
     }

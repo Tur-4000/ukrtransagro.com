@@ -14,12 +14,15 @@ use SimpleQueryBuilder\Query;
         <base href="https://<?=$base;?>/">
         <title><?=$titlePage;?> : <?=$word['uta'];?></title>
         <meta name="description" content='<?=$descriptPage;?>'/>
-        <script> var view = "<?= $view; ?>"; var lang = "<?= $lang; ?>"; </script>
+        <script>
+            var view = "<?= $view; ?>";
+            var lang = "<?= $lang; ?>";
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Mobile -->
         <meta name="viewport" content="width=1200">
-	<meta name="MobileOptimized" content="1200"/>
-	<meta name="HandheldFriendly" content="true"/>
+        <meta name="MobileOptimized" content="1200"/>
+        <meta name="HandheldFriendly" content="true"/>
         <!-- GooglePlus -->
         <meta itemprop="title" content='<?=$titlePage;?> : <?=$requisites['name_'.$lang];?>'/>
         <meta itemprop="description" content="<?=$descriptPage;?>"/>
@@ -58,9 +61,9 @@ use SimpleQueryBuilder\Query;
             <a href='client'><?=$word['client'];?></a>
         </cabinet>
         <lang>
-            <a lang="ua" href="<?php echo 'ua/'.$link;?>">ua</a>
-            <a lang="ru" href="<?php echo $link;?>" class='active'>ru</a>
-            <a lang="en" href="<?php echo 'en/'.$link;?>">en</a>
+            <a lang="ua" href="<?php echo $link;?>" class='active'>ua</a>
+            <a lang="ru" href="<?php echo "ru/{$link}";?>">ru</a>
+            <a lang="en" href="<?php echo "en/{$link}";?>">en</a>
         </lang>
         
         <menu>

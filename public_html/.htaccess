@@ -3,7 +3,7 @@ Options All -Indexes
 AddDefaultCharset UTF-8
 
 RewriteEngine On
-DirectoryIndex index.html index.htm index.php
+DirectoryIndex index.php
 
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
@@ -15,14 +15,14 @@ RewriteRule ^en/([A-Za-z0-9-]+)$ ?enview=$1&lang=en [L]
 RewriteRule ^en/([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)$ ?enview=$1&encat=$2&lang=en [L]
 RewriteRule ^en/([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_,.!]+)$ ?enview=$1&encat=$2&enpodcat=$3&lang=en [L]
 
-RewriteRule ^ua$ ?uaview=main&lang=ua [L]
-RewriteRule ^ua/([A-Za-z0-9-]+)$ ?uaview=$1&lang=ua [L]
-RewriteRule ^ua/([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)$ ?uaview=$1&uacat=$2&lang=ua [L]
-RewriteRule ^ua/([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_,.!]+)$ ?uaview=$1&uacat=$2&uapodcat=$3&lang=ua [L]
+RewriteRule ^ru$ ?ruview=main&lang=ru [L]
+RewriteRule ^ru/([A-Za-z0-9-]+)$ ?ruview=$1&lang=ru [L]
+RewriteRule ^ru/([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)$ ?ruview=$1&rucat=$2&lang=ru [L]
+RewriteRule ^ru/([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_,.!]+)$ ?ruview=$1&rucat=$2&rupodcat=$3&lang=ru [L]
 
-RewriteRule ^([A-Za-z0-9-_]+)$ ?view=$1&lang=ru [L]
-RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)$ ?view=$1&cat=$2&lang=ru [L]
-RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_,.!]+)$ ?view=$1&cat=$2&podcat=$3&lang=ru [L]
+RewriteRule ^([A-Za-z0-9-_]+)$ ?view=$1&lang=ua [L]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)$ ?view=$1&cat=$2&lang=ua [L]
+RewriteRule ^([A-Za-z0-9-]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_,.!]+)$ ?view=$1&cat=$2&podcat=$3&lang=ua [L]
 
 RewriteCond %{REQUEST_URI} !\?
 RewriteCond %{REQUEST_URI} !\&
