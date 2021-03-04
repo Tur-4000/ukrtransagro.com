@@ -35,35 +35,17 @@ if (!isset($_GET['view']) && !isset($_GET['uaview']) && !isset($_GET['enview']))
     $view = 'main';
 }
 
-if (isset($_GET['view'])) {
-    $view = $_GET['view'];
-}
-if (isset($_GET['cat'])) {
-    $cat = $_GET['cat'];
-}
-if (isset($_GET['podcat'])) {
-    $podcat = $_GET['podcat'];
-}
+if (isset($_GET['view'])) $view = $_GET['view'];
+if (isset($_GET['cat'])) $cat = $_GET['cat'];
+if (isset($_GET['podcat'])) $podcat = $_GET['podcat'];
 
-if (isset($_GET['ruview'])) {
-    $view = $_GET['ruview'];
-}
-if (isset($_GET['rucat'])) {
-    $cat = $_GET['rucat'];
-}
-if (isset($_GET['rupodcat'])) {
-    $podcat = $_GET['rupodcat'];
-}
+if (isset($_GET['ruview'])) $view = $_GET['ruview'];
+if (isset($_GET['rucat'])) $cat = $_GET['rucat'];
+if (isset($_GET['rupodcat'])) $podcat = $_GET['rupodcat'];
 
-if (isset($_GET['enview'])) {
-    $view = $_GET['enview'];
-}
-if (isset($_GET['encat'])) {
-    $cat = $_GET['encat'];
-}
-if (isset($_GET['enpodcat'])) {
-    $podcat = $_GET['enpodcat'];
-}
+if (isset($_GET['enview'])) $view = $_GET['enview'];
+if (isset($_GET['encat'])) $cat = $_GET['encat'];
+if (isset($_GET['enpodcat'])) $podcat = $_GET['enpodcat'];
 
 //// TITLE & DESCRIPTION ---------------------------------------------------------
 if (!isset($cat)) {
