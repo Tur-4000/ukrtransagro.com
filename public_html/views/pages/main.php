@@ -31,7 +31,7 @@ use function Uta\Helpers\formatDate;
         </div>
         <a class="link tomain"></a>
     </div>
-    <noindex><a href="http://www.eba.com.ua/uk" target="blank" rel="nofollow" class='eba'></a></noindex>
+    <!--<noindex><a href="http://www.eba.com.ua/uk" target="blank" rel="nofollow" class='eba'></a></noindex>-->
     <screen>
         <div class="play_button"></div><blur></blur>
         <video src="images/uta_video.mp4" preload="auto" poster="images/index.jpg"></video>
